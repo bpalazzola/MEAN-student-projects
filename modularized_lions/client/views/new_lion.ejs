@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Form to create a new lion</title>
+    </head>
+    <body>
+        <h1>Make your own Lion today!</h1>
+        <form class="lion_maker" action="/lions" method="post">
+            <label for="name">Name:</label>
+            <input type="name" name="name" value="">
+            <label for="age">Age:</label>
+            <input type="number" name="age" min="1" max="25">
+            <label for="house_words">House Words:</label>
+            <input type="text" name="house_words" value="">
+            <input type="submit" name="submit" value="Create This Lion!">
+        </form>
+    </body>
+</html>

@@ -1,13 +1,4 @@
-function Trie(value) {
-  this.root = new TrieNode(value);
-}
 
-function TrieNode(value, name) {
-    this.val = value;
-    this.name = name || number_names[value];
-    this.steps = [];
-    this.children = {};
-}
 var number_names = {
     1: "one",
     2: "two",
@@ -31,23 +22,41 @@ var operations = {
     divide : function(x,y){
         return x / y;
     },
+    r_divide : function(x,y){
+        return y/ x;
+    },
     add : function(x,y){
         return x + y;
     },
     subtract : function(x,y){
         return x - y;
+    },
+    r_subtract : function(x,y){
+        return y - x;
     }
 }
-Trie.prototype.insert(value){
-    var cur = this.root;
-    var stems = [];
-    while(cur.children){
-        stems.push(cur);
-        for (var i = 0; i < cur.children.length; i++) {
-            var newNode = cur.children[i]
+var solutions = [];
+function number_solver(num_set, target, running_total, operations_performed){
+    running_total = running_total || 0;
+    operations_performed = operations_performed || [];
+    if(num_set.length < 1){
+        return false;
+    }
+    for (number in num_set){
+        for (operation in operations){
+            let new_result = operations[operation](num_set[number], running_total);
+            if(new_result % 1 == 0 && new_result > 0){
+                operations_performed.push(operation + num_set[number] + "and" + running_total);
+                if(new_result === target){
+                    solutions.push(operations_performed);
+                    return operations_performed;
+                }
+                let new_num_set = num_set.slice(0, number) + num_set.slice(number + 1);
+                return number_solver(new_num_set, target, new_result, operations_performed)
+            }
         }
     }
-    for (operation in operations){
-
-    }
 }
+
+console.log(number_solver([1,2], 3));
+console.log(solutions);

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Here are the quotes!</title>
+    </head>
+    <body>
+        <h1>We've got all the quotes right here</h1>
+        <table>
+            <thead>
+                <th>Quote</th>
+                <th>Author</th>
+                <th>Date</th>
+            </thead>
+            <tbody>
+                <% for(var quote of quotes) { %>
+                <tr>
+                    <td><%= quote.content %></td>
+                    <td><%= quote.user %></td>
+                    <td><%= quote.createdAt %></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Button Game</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript">
+        $('document').ready(function(){
+            var socket = io.connect();
+            socket.emit('user_has_joined');
+
+            $('#plus_button').click(function(){
+                socket.emit('plus_button_click');
+            });
+            $('#reset_button').click(function(){
+                socket.emit('reset_button_click');
+            });
+            socket.on('server_response_count', function(data){
+                $('#click_count').text(data.count);
+            });
+            socket.on('server_response_addition', function(data){
+                $('#click_count').text(data.count);
+            });
+        })
+
+        </script>
+    </head>
+    <body>
+        <h1>Click the button!</h1>
+        <p id='click_count'>0</p>
+        <button type="button" name="plus_button" id="plus_button">+1 Point</button>
+        <button type="button" name="button" id="reset_button">Reset</button>
+    </body>
+</html>

@@ -127,4 +127,4 @@ for (var i = 0; i < wordList.length; i++) {
     dictionary.insert(wordList[i]);
 }
 module.exports = dictionary;
-console.log(dictionary.rBestWord(['t','u','p','l','e','r','s','o','l']));
+console.log(dictionary.rBestWord(['l','o','e','t','r','u','a','m','s']));

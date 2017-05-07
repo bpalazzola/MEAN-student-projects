@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Form to create a new lion</title>
+    </head>
+    <body>
+        <h1>Edit this lion!</h1>
+        <form class="lion_maker" action="/lions/<%= lion._id %>" method="post">
+            <label for="name">Name:</label>
+            <input type="name" name="name" value="<%= lion.name %>">
+            <label for="age">Age:</label>
+            <input type="number" name="age" min="1" max="25" value="<%= lion.age %>">
+            <label for="house_words">House Words:</label>
+            <input type="text" name="house_words" value="<%= lion.house_words %>">
+            <input type="submit" name="submit" value="Edit This Lion!">
+        </form>
+    </body>
+</html>

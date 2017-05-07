@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Index page where the lions roam free</title>
+    </head>
+    <body>
+        <h1>Lions! Lions! Liooooooooons!</h1>
+        <button type="button" name="button"><a href="/lions/new">Make a Lion!</a></button>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Age</th>
+                <th>House Words</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                <% for(var lion of lions){ %>
+                <tr>
+                    <td><a href="/lions/<%= lion._id %>"><%= lion.name %></a></td>
+                    <td><%= lion.age %></td>
+                    <td><%= lion.house_words %></td>
+                    <td>
+                        <a href="/lions/edit/<%= lion._id %>">Edit</a>
+                        <form class="lion_destroyer" action="/lions/destroy/<%= lion._id %>" method="post">
+                            <input type="submit" name="submit" value="Destroy">
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </body>
+</html>
