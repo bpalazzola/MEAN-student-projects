@@ -1,0 +1,24 @@
+<section>
+    <h2>Add an association</h2>
+    <select class="" name="" ng-model="association.player">
+        <option ng-repeat = "player in players" value="{{player.name}}">{{player.name}}</option>
+    </select>
+    <select class="" name="" ng-model="association.team">
+        <option ng-repeat = "team in teams" value="{{team.name}}">{{team.name}}</option>
+    </select>
+    <button type="button" name="button" ng-click="addAssociation()">Create Association!</button>
+    <table>
+        <thead>
+            <th>player</th>
+            <th>team</th>
+            <th>actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="association in associations track by $index">
+                <td>{{association.player}}</td>
+                <td>{{association.team}}</td>
+                <td><button type="button" name="button" ng-click="deleteAssociation($index)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</section>

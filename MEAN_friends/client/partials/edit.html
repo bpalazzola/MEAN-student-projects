@@ -1,0 +1,11 @@
+<section>
+    <form class="editFriend">
+        <label for="firstName">First Name:</label>
+        <input type="text" name="firstName" value="" ng-model="friend.firstName">
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lastName" value="" ng-model="friend.lastName">
+        <label for="birthday">Birthday:</label>
+        <input type="date" name="birthday" value="" ng-model="friend.birthday">
+        <button type="button" name="button" ng-click="update(friend._id)">Edit User</button>
+    </form>
+</section>

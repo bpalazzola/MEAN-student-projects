@@ -1,0 +1,17 @@
+{
+  "name": "mean_store",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "ryanfleharty <ryan.fleharty@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/CodingDojo-MEAN-04-17/ryans-mean-repo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

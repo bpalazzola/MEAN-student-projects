@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="angular/angular.js"></script>
+        <script src="angular-route/angular-route.js"></script>
+        <script type="text/javascript">
+            var app = angular.module('app', ['ngRoute'])
+            app.factory('userFactory', function(){
+                var factory = {};
+                var users = [{firstName:'dork',lastName:'asaurus',language:'klingon'}];
+                factory.getUsers = function(callback){
+                    callback(users);
+                };
+                factory.addUser = function(user){
+                    users.push(user);
+                };
+                factory.deleteUser = function(index){
+                    users.splice(index, 1);
+                };
+                return factory;
+            });
+            app.controller('CustomizeUserController', ['$scope', 'userFactory',
+                function($scope, userFactory){
+                    $scope.users = [];
+                    userFactory.getUsers(function(users){
+                        $scope.users = users;
+                    });
+                    $scope.addUser = function(){
+                        userFactory.addUser($scope.newUser);
+                        $scope.newUser = {};
+                    };
+                    $scope.deleteUser = function(index){
+                        userFactory.deleteUser(index);
+                    };
+
+                }
+            ])
+            app.controller('UserListController', ['$scope', 'userFactory',
+                function($scope, userFactory){
+                    $scope.users = [];
+                    userFactory.getUsers(function(users){
+                        $scope.users = users;
+                    });
+                }
+            ])
+            app.config(function($routeProvider){
+                $routeProvider
+                .when('/', {
+                    templateUrl:'partials/customizeUsers.html',
+                    controller:'CustomizeUserController'
+                })
+                .when('/userList', {
+                    templateUrl:'partials/userList.html',
+                    controller:'UserListController'
+                })
+                .otherwise({
+                    redirectTo:'/'
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Welcome to our users application index page!</h1>
+        <h2 ng-hide='true'>Angular is on holiday</h2>
+        <ng-view></ng-view>
+    </body>
+</html>

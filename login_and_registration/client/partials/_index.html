@@ -1,0 +1,30 @@
+<section>
+    <h2>Let's register and log in and such!</h2>
+    <h3>Register</h3>
+    <ul ng-repeat="error in errors.errors">
+        <li>{{error}}</li>
+    </ul>
+    <form class="" name='form' ng-submit='register(user)' ng-controller="userController">
+        Username: <input type="text" name="username" value="" ng-model="user.username">{{errors.username.message}}<br>
+        Email: <input type="email" name="email" value="" ng-model="user.email" required="">{{errors.email.message}}
+        <div class="" ng-show="form.$submitted || form.email.$touched">
+            <span ng-show="form.email.$error.email">This is not a valid email.</span>
+        </div>
+        {{errors.duplicates.message}}
+        <br>
+        Password: <input type="password" name="" value="" ng-model="user.password">{{errors.password.message}}<br>
+        Confirm Password: <input type="password" name="" value="" ng-model="user.confirm_password">{{errors.confirm_password.message}}<br>
+        Birthday: <input type="date" ng-model="user.birthday">{{errors.birthday.message}}<br>
+        <input type="submit" name="submit" value=" Register User!">
+    </form>
+    <h3>Login</h3>
+    <form class="" ng-submit='login(user)' ng-controller="userController">
+        Username: <input type="text" name="username" value="" ng-model="user.username" required="">{{errors.username.message}}<br>
+        password: <input type="password" name="password" value="" ng-model="user.password" required=""><br>
+        <input type="submit" name="submit" value="Login User!">
+        <h3>Welcome, {{username}}</h3>
+        <button type="button" name="button" ng-click='logout()'>Log Out</button>
+    </form>
+
+
+</section>

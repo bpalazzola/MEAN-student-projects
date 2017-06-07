@@ -1,0 +1,57 @@
+<section ng-init="index()">
+    <h2>Home page of the products SPA</h2>
+    <h3>Products</h3>
+    <label for="searchfilter">Search:</label>
+    <input type="text" name="searchfilter" ng-model="productsearchtext">
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Created at:</th>
+            <th>Quantity</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="product in products | filter:productsearchtext | limitTo:3">
+                <td><a href="#!/products/{{product._id}}">{{product.name}}</a></td>
+                <td>{{product.createdAt | date}}</td>
+                <td>{{product.quantity}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="#!/products/">See all of the products</a>
+    <h3>Orders</h3>
+    <label for="searchfilter">Search:</label>
+    <input type="text" name="searchfilter" ng-model="ordersearchtext">
+    <table>
+        <thead>
+            <th>Product</th>
+            <th>Customer</th>
+            <th>Quantity</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="order in orders | limitTo: 3 | filter:ordersearchtext">
+                <td>{{order._product.name}}</td>
+                <td>{{order._customer.name}}</td>
+                <td>{{order.quantity}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="#!/orders/">See all of the orders</a>
+    <h3>Customers</h3>
+    <label for="searchfilter">Search:</label>
+    <input type="text" name="searchfilter" ng-model="customersearchtext">
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Created at:</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="customer in customers | filter:customersearchtext | limitTo: 3">
+                <td><a href="#!/customers/{{customer._id}}">{{customer.name}}</a></td>
+                <td>{{customer.createdAt | date}}</td>
+                <td><button type="button" name="button" ng-click="delete(customer._id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="#!/customers/">See all of the customers</a>
+</section>

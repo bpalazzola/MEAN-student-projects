@@ -1,0 +1,8 @@
+<section ng-init="show()">
+    <h2>Here's the details on just one product</h2>
+    <h3>Name</h3>
+    <p ng-bind="product.name"></p>
+    <h3>Created At</h3>
+    <p ng-bind="product.createdAt"></p>
+    <a href="#!/products/edit/{{product._id}}">Edit this product</a>
+</section>

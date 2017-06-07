@@ -1,0 +1,35 @@
+<section ng-init="show()">
+    <h2>Here's the details about just one topic</h2>
+    <h3>{{topic.title}}</h3>
+    <p>{{topic.description}}</p>
+    <h3>{{topic._user.username}}</h3>
+    <h2>Add a comment</h2>
+    <form class="newComment" ng-submit="addComment(newComment)">
+        <label for="content">Comment</label>
+        <input type="textarea" name="content" ng-model="newComment.content">
+        <input type="submit" name="" value="Add a Comment">
+    </form>
+    <h2>Here's the comments and their replies (oh boy)</h2>
+    <div class="commentDiv" ng-repeat="comment in topic._comments" ng-init="showComment(comment._id)" ng-controller="topicController">
+            <h3>{{eachComment._user.username}}</h3>
+            <p>{{eachComment.content}}</p>
+            <form class="newVote" ng-submit="addVote(newVote)">
+                <label for="upvote">Vote on this comment:</label>
+                <select class="voteSelect" name="upvote" ng-model="newVote.upvote">
+                    <option value="true">Upvote</option>
+                    <option value="false">Downvote</option>
+                </select>
+                <input type="submit" name="" value="Vote">
+                <p>{{errors.vote}}</p>
+            </form>
+            <p>upvotes: {{eachComment.upvotes}} downvotes: {{eachComment.downvotes}}</p>
+            <div class="replyDiv" ng-repeat="reply in eachComment._replies" ng-init="showReply(reply._id)" ng-controller="topicController">
+                <h4>{{eachReply._user.username}}</h4>
+                <p>{{reply.content}}</p>
+            </div>
+            <form class="newReply" ng-submit="addReply(newReply)">
+                <input type="textarea" name="content" ng-model="newReply.content">
+                <input type="submit" name="" value="Add a reply">
+            </form>
+    </div>
+</section>

@@ -1,0 +1,8 @@
+<section ng-init="show()">
+    <h2>Here's the details on just one customer</h2>
+    <h3>Name</h3>
+    <p ng-bind="customer.name"></p>
+    <h3>Created At</h3>
+    <p ng-bind="customer.createdAt"></p>
+    <a href="#!/customers/edit/{{customer._id}}">Edit this customer</a>
+</section>

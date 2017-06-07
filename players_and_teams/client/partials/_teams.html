@@ -1,0 +1,18 @@
+<section>
+    <h2>Make a team!</h2>
+    <input type="text" name="" value="" placeholder="name"  ng-model="team.name">
+    <button type="button" name="button" ng-click="addTeam()">Create this Team!</button>
+    <h2>Here are the existing teams</h2>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="team in teams track by $index">
+                <td>{{team.name}}</td>
+                <td><button type="button" name="button" ng-click="deleteTeam($index)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</section>

@@ -1,0 +1,21 @@
+<section>
+    <h2>Here's the WALL</h2>
+    <h3>Welcome, {{username}}</h3>
+    <form class="add_message" ng-submit="addMessage(newMessage)">
+        <input type="textarea" name="content" ng-model="newMessage.content">
+        <input type="submit" name="" value="Post Message!">
+    </form>
+    <h2>Here are the messages</h2>
+    <div class="messageDiv" ng-repeat="message in messages track by $index" ng-controller="wallController">
+        <h3>{{message._user.username}} - {{message.createdAt | date }}</h3>
+        <p ng-bind="message.content"></p>
+        <div class="commentDiv" ng-repeat="comment in message._comments" ng-controller="wallController">
+            <h4>{{comment._user.username}} - {{comment.createdAt | date }}</h4>
+            <p ng-bind="comment.content"></p>
+        </div>
+        <form class="add_comment" ng-submit="addComment(newComment)" >
+            <input type="text" name="content" ng-model="newComment.content" required="">
+            <input type="submit" name="" value="Post Comment!">
+        </form>
+    </div>
+</section>

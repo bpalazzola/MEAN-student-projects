@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <meta charset="utf-8">
+        <title>build a controller</title>
+        <script src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript">
+            var app = angular.module('app', []);
+            app.controller('babbys_first_controller', function($scope){
+                $scope.food_list = [];
+                $scope.addFood = function(food){
+                    $scope.food_list.push(food);
+                };
+                $scope.pFilter = function(array){
+                    var filtered_array = [];
+                    for (var i = 0; i < array.length; i++) {
+                        if (array[i][0] != 'p'){
+                            filtered_array.push(array[i])
+                        }
+                    };
+                    $scope.food_list = filtered_array;
+                };
+            })
+        </script>
+    </head>
+    <body ng-controller='babbys_first_controller'>
+        Favorite Food: <input type="text" name="food" value="" ng-model="foodInput">
+        <p>Currently typing: <span ng-bind="foodInput"></span>
+        <button type="button" name="button" ng-click="addFood(foodInput)">Add the food!</button>
+        <button type="button" name="button" ng-click="pFilter(food_list)">Remove those that start with p</button>
+        <ul>
+            <li ng-repeat="food in food_list">{{ food }}</li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="app.js"></script>
+        <script src="factory.js"></script>
+        <script src="controller.js"></script>
+    </head>
+    <body>
+        <h1 ng-hide='true'>Angular on holiday</h1>
+        <div class="products" ng-controller="productsController">
+            <input type="text" name="name" value="" ng-model="product.name" placeholder='name'>
+            <input type="number" step='.01' name="price" value="" ng-model="product.price" placeholder='price'>
+            <button type="button" name="button" ng-click="addProduct()">Add Product</button>
+            <table>
+                <thead>
+                    <th>product name</th>
+                    <th>price</th>
+                    <th>actions</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat='product in products track by $index'>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price | currency}}</td>
+                        <td><button type="button" name="button" ng-click='deleteProduct($index)'>Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2>Order some products!</h2>
+        <div class="orders" ng-controller="orderController">
+            <table>
+                <thead>
+                    <th>product name</th>
+                    <th>price</th>
+                    <th>quantity</th>
+                    <th>actions</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat='product in products track by $index'>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price | currency}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td><button type="button" name="button" ng-click='orderProduct($index)'>Order one!</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

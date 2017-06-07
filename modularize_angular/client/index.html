@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="UTF-8">
+  <script src='angular/angular.js'></script>
+  <script src='angular-route/angular-route.js'></script>
+  <script src='app.js'></script>
+  <script src='factories/user.js'></script>
+  <script src='controllers/editController.js'></script>
+  <script src='controllers/indexController.js'></script>
+  <script src='controllers/newController.js'></script>
+
+
+
+  <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome to the user app</h1>
+    <a href="#!/index">index</a>
+    <a href="#!/new">new</a>
+  <ng-view></ng-view>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<section ng-init="index()">
+    <h2>Here's the orders page</h2>
+    <h3>Place a new order</h3>
+    <form ng-submit="create()">
+        <label for="product">Product:</label>
+        <select ng-options="product.name for product in products" ng-model="newOrder._product">
+        </select>
+        <label for="customer">customer:</label>
+        <select ng-options="customer.name for customer in customers" ng-model="newOrder._customer">
+        </select>
+        <input type="number" max="{{newOrder._product.quantity}}" name="" value="" ng-model="newOrder.quantity">
+        <input type="submit" name="" value="Place order!">
+    </form>
+    <h3>Here are all the orders so far</h3>
+    <table>
+        <thead>
+            <th>Product</th>
+            <th>Customer</th>
+            <th>Quantity</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="order in orders">
+                <td>{{order._product.name}}</td>
+                <td>{{order._customer.name}}</td>
+                <td>{{order.quantity}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

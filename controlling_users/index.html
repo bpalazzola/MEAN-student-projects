@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <meta charset="utf-8">
+        <title>Users Contoller</title>
+        <script src='bower_components/angular/angular.js'></script>
+        <script type="text/javascript">
+            var app = angular.module('app', []);
+            app.controller('UsersController', function($scope){
+                $scope.users = [];
+                $scope.makeUser = function(){
+                    $scope.users.push($scope.newUser);
+                    $scope.newUser = {};
+                }
+                $scope.deleteUser = function(index){
+                    $scope.users.splice(index, 1);
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <div class="usersDiv" ng-controller="UsersController">
+            First Name <input type="text" name="firstName" value="" ng-model="newUser.firstName">
+            Last Name <input type="text" name="lastName" value="" ng-model="newUser.lastName">
+            Favorite Language <input type="text" name="language" value="" ng-model="newUser.language">
+            <button type="button" name="button" ng-click="makeUser()">Add this User!</button>
+            <table>
+                <thead>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Favorite language</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in users track by $index">
+                        <td ng-bind="user.firstName"></td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.language}}</td>
+                        <td><button type="button" name="button" ng-click="deleteUser($index)">Delete User</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

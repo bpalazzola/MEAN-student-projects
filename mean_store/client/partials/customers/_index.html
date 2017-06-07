@@ -1,0 +1,25 @@
+<section ng-init="index()">
+    <h2>Here's the customer index page</h2>
+    <h3>Create a customer</h3>
+    <form class="" ng-submit="create(newCustomer)">
+        <input type="text" name="name" value="" ng-model="newCustomer.name">
+        <input type="submit" name="" value="Create Customer">
+    </form>
+    <h3>Browse through the customers</h3>
+    <label for="searchtext">Search by name</label>
+    <input type="text" name="searchtext" value="" ng-model="searchtext.name">
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Created at:</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="customer in customers | filter:searchtext:strict">
+                <td><a href="#!/customers/{{customer._id}}">{{customer.name}}</a></td>
+                <td>{{customer.createdAt | date}}</td>
+                <td><button type="button" name="button" ng-click="delete(customer._id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</section>

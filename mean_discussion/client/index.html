@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src='angular/angular.js'></script>
+        <script src='angular-route/angular-route.js'></script>
+        <script src='angular-cookies/angular-cookies.js'></script>
+        <script src='app.js'></script>
+        <script src='app/services/userService.js'></script>
+        <script src='app/services/authService.js'></script>
+        <script src='app/factories/topicFactory.js'></script>
+        <script src='app/factories/categoryFactory.js'></script>
+        <script src='app/factories/commentFactory.js'></script>
+        <script src='app/factories/replyFactory.js'></script>
+        <script src='app/factories/voteFactory.js'></script>
+        <script src='app/controllers/userController.js'></script>
+        <script src='app/controllers/topicController.js'></script>
+    </head>
+    <body>
+        <h1>Welcome to the discussion board app!</h1>
+        <div class="" ng-controller="userController" ng-show="isAuthed()">
+            <button type="button" name="button" ng-click="logout()">LOGOUT USER</button>
+            <a href="#!/topics/">Topics Home</a>
+        </div>
+        <ng-view></ng-view>
+    </body>
+</html>

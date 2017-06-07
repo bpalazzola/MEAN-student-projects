@@ -1,0 +1,18 @@
+<section>
+    <h2>Make a player!</h2>
+    <input type="text" name="" value="" placeholder="first name"  ng-model="player.name">
+    <button type="button" name="button" ng-click="addPlayer()">Create this Player!</button>
+    <h2>Here are the existing players</h2>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="player in players track by $index">
+                <td>{{player.name}}</td>
+                <td><button type="button" name="button" ng-click="deletePlayer($index)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</section>

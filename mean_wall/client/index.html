@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <meta charset="utf-8">
+        <title>Welcome to the app- Sign in first to access the wall!</title>
+        <script src='angular/angular.js'></script>
+        <script src='angular-route/angular-route.js'></script>
+        <script src='app.js'></script>
+        <script src='angular-cookies/angular-cookies.js'></script>
+        <script src='app/controllers/userController.js'></script>
+        <script src='app/controllers/wallController.js'></script>
+        <script src='app/factories/messageFactory.js'></script>
+        <script src='app/factories/commentFactory.js'></script>
+        <script src='app/services/userService.js'></script>
+        <script src='app/services/authService.js'></script>
+    </head>
+    <body>
+        <h1>Welcome to the WALL</h1>
+        <h2 ng-hide='true'>Angular on holiday</h2>
+        <div class="" ng-controller="userController" ng-show="isAuthed()">
+            <button type="button" name="button" ng-click="logout()">LOGOUT USER</button>
+        </div>
+        <ng-view></ng-view>
+    </body>
+</html>

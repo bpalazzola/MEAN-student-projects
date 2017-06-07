@@ -1,0 +1,25 @@
+<section>
+    <form class="makeFriend" ng-submit="addFriend()">
+        <label for="firstName">First Name:</label>
+        <input type="text" name="firstName" value="" ng-model="friend.firstName">
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lastName" value="" ng-model="friend.lastName">
+        <label for="birthday">Birthday:</label>
+        <input type="date" name="birthday" value="" ng-model="friend.birthday">
+        <input type="submit" name="submit" value="Add a friend!">
+    </form>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="friend in friends">
+                <td><a href="#!/friends/{{friend._id}}">{{friend.firstName}}{{friend.lastName}}</a></td>
+                <td>{{friend.birthday}}</td>
+                <td><button type="button" name="button" ng-click="deleteFriend(friend._id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</section>

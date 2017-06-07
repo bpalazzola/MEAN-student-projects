@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <meta charset="utf-8">
+        <title>Here's our one-page players and teams app!</title>
+        <script src="angular/angular.js"></script>
+        <script src="angular-route/angular-route.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/factories/team.js"></script>
+        <script src="app/factories/player.js"></script>
+        <script src="app/controllers/teams.js"></script>
+        <script src="app/controllers/players.js"></script>
+        <script src="app/controllers/associations.js"></script>
+    </head>
+    <body>
+        <h1>Welcome to the players and teams SPA</h1>
+        <h2 ng-hide='true'>Angular on holiday</h2>
+        <a href="#!/players">Players</a>
+        <a href="#!/teams">Teams</a>
+        <a href="#!/associations">Associations</a>
+        <ng-view></ng-view>
+    </body>
+</html>

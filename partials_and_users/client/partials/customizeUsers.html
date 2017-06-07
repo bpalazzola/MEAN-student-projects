@@ -1,0 +1,24 @@
+<div>
+    <h2>Let's add or delete some users okay??</h2>
+    <input type="text" name="" value="" placeholder="first name"  ng-model="newUser.firstName">
+    <input type="text" name="" value="" placeholder="last name" ng-model="newUser.lastName">
+    <input type="text" name="" value="" placeholder="favorite language" ng-model="newUser.language">
+    <button type="button" name="button" ng-click="addUser()">Create this User!</button>
+    <table>
+        <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Favorite Language</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users track by $index">
+                <td>{{user.firstName}}</td>
+                <td ng-bind='user.lastName'></td>
+                <td ng-bind='user.language'></td>
+                <td><button type="button" name="button" ng-click='deleteUser($index)'>Delete User</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="#!/userList">A Simple List of Users</a>
+</div>

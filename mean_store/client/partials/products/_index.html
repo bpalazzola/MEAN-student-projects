@@ -1,0 +1,32 @@
+<section ng-init="index()">
+    <h2>Here's the product index page</h2>
+    <h3>Create a product</h3>
+    <form class="" ng-submit="create(newProduct)">
+        <label for="name">Product name:</label>
+        <input type="text" name="name" value="" ng-model="newProduct.name">{{errors.errors.name.message}}<br>
+        <label for="quantity">Initial Quantity:</label>
+        <input type="number" name="quantity" value="" ng-model="newProduct.quantity">{{errors.errors.quantity.message}}<br>
+        <label for="image_url">Image url:</label>
+        <input type="url" name=image_url"" value="" ng-model="newProduct.image">{{errors.errors.image.message}}<br>
+        <input type="submit" name="" value="Create Product">
+    </form>
+    <h3>Browse through the customers</h3>
+    <label for="searchtext">Search by name</label>
+    <input type="text" name="searchtext" value="" ng-model="searchtext.name">
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Created at:</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="product in products | filter:searchtext:strict">
+                <td><a href="#!/products/{{product._id}}">{{product.name}}</a></td>
+                <td>{{product.createdAt | date}}</td>
+                <td>{{product.quantity}}</td>
+                <td><button type="button" name="button" ng-click="delete(product._id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</section>

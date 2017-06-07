@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <meta charset="utf-8">
+        <title>Welcome to the mini-store SPA</title>
+        <script src='angular/angular.js'></script>
+        <script src='angular-route/angular-route.js'></script>
+        <script src='app.js'></script>
+        <script src='app/controllers/customerController.js'></script>
+        <script src='app/controllers/productController.js'></script>
+        <script src='app/controllers/orderController.js'></script>
+        <script src='app/controllers/dashController.js'></script>
+        <script src='app/factories/customerFactory.js'></script>
+        <script src='app/factories/productFactory.js'></script>
+        <script src='app/factories/orderFactory.js'></script>
+    </head>
+    <body>
+        <h1>Here is the welcome banner that will persist throughout the app!</h1>
+        <h2 ng-hide='true'>Angular on holiday</h2>
+        <a href="#!/">Home</a>
+        <a href="#!/customers/">Customers</a>
+        <a href="#!/products/">products</a>
+        <a href="#!/orders/">orders</a>
+        <ng-view></ng-view>
+    </body>
+</html>

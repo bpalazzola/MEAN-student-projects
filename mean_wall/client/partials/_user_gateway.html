@@ -1,0 +1,21 @@
+<section>
+    <h2>Login or Register to access the message board!</h2>
+    <form class="registerForm" ng-controller="userController" ng-submit="register(user)" >
+        {{errors.duplicates.message}}
+        <label for="username">Username:</label>
+        <input type="text" name="username" ng-model="user.username">{{errors.username.message}}<br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" ng-model="user.email">{{errors.email.message}}<br>
+        <label for="password">password:</label>
+        <input type="password" name="password" ng-model="user.password">{{errors.password.message}}<br>
+        <input type="submit" name="" value="Register!"><br>
+    </form>
+    <form class="loginForm" ng-controller="userController" ng-submit="login(user)" >
+        <label for="username">Username:</label>
+        <input type="text" name="username" ng-model="user.username">{{errors.username.message}}<br>
+        <label for="password">password:</label>
+        <input type="password" name="password" ng-model="user.password">{{errors.password.message}}<br>
+        {{errors.login.message}}<br ng-show="errors.login.message">
+        <input type="submit" name="" value="Login!">
+    </form>
+</section>

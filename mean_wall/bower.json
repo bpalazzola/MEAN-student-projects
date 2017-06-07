@@ -1,0 +1,22 @@
+{
+  "name": "mean_wall",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "ryanfleharty <ryan.fleharty@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/CodingDojo-MEAN-04-17/ryans-mean-repo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "angular-cookies": "^1.6.4"
+  }
+}
